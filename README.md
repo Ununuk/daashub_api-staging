@@ -1,8 +1,10 @@
 # DaashubAPI
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/daashub_api`. To experiment with that code, run `bin/console` for an interactive prompt.
+A Ruby interface to [Daashub API](https://gist.github.com/weemanjz/bb558858ce5d2e33ce08).
 
-TODO: Delete this and the text above, and describe your gem
+## Documentation
+
+https://gist.github.com/weemanjz/bb558858ce5d2e33ce08
 
 ## Installation
 
@@ -22,17 +24,47 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+Daashub API v1 uses Token Based Authentication, so you'll need to [register your account on Daashub](https://www.daashub.io). Then you will be assigned an API Token. Now you can configure a Daashub client.
 
-## Development
+```ruby
+client = DaashubAPI::Client.new('your_api_token')
+```
 
-After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake spec` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
+When you use invalid API token `DaashubAPI::UnauthorizedError` will be raised.
 
-To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and tags, and push the `.gem` file to [rubygems.org](https://rubygems.org).
+Once you've configured a `client`, you can do following things.
+
+**Get an account info**
+
+```ruby
+account = client.account_info
+
+account.records_left # 50
+account.renewal_date # 2016-03-04 12:00:44 UTC
+```
+
+**Get companies data**
+
+```ruby
+companies = client.companies(where: { domain: 'www.example.com' }, limit: 2)
+
+companies.error? # false
+companies.daashub_fields # ['email']
+companies.map &:email # ['katie@example.com', 'robert@example.com']
+
+companies = client.companies
+
+companies.error? # true
+companies.errors # ["Where can't be blank"]
+```
+
+## Supported Ruby Versions
+
+This library was currently tested against `Ruby 2.3` only. It may work on other Ruby versions, however it wasn't tested against them yet.
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/daashub_api.
+Bug reports and pull requests are welcome on GitHub at https://github.com/weemanjz/daashub_api.
 
 
 ## License

@@ -19,7 +19,7 @@ http_interactions:
       Server:
       - Cowboy
       Date:
-      - Tue, 02 Feb 2016 17:59:12 GMT
+      - Wed, 03 Feb 2016 13:12:40 GMT
       Connection:
       - keep-alive
       X-Frame-Options:
@@ -31,13 +31,13 @@ http_interactions:
       Content-Type:
       - application/json; charset=utf-8
       Etag:
-      - W/"0aa15c3d746abb7b9e9efe9737a934c0"
+      - W/"217199f028e65a4a129d25f2a8558bd8"
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - 4703e5ac-b965-4f7b-86e2-a6dbd0647a16
+      - dfc4cf43-dfcf-4f19-9449-808c14865831
       X-Runtime:
-      - '0.012368'
+      - '0.025780'
       Vary:
       - Origin
       Transfer-Encoding:
@@ -46,7 +46,7 @@ http_interactions:
       - 1.1 vegur
     body:
       encoding: UTF-8
-      string: '{"item_count":2,"items":[{"email":"katie@example.com"},{"email":"robert@example.com"}]}'
+      string: '{"fields":["email"],"item_count":2,"items":[{"email":"robert@example.com"},{"email":"danielle@example.com"}]}'
     http_version:
-  recorded_at: Tue, 02 Feb 2016 17:59:07 GMT
+  recorded_at: Wed, 03 Feb 2016 13:12:33 GMT
 recorded_with: VCR 3.0.1
