@@ -1,0 +1,12 @@
+/.bundle/
+/.gem/
+/.yardoc
+/Gemfile.lock
+/_yardoc/
+/coverage/
+/doc/
+/pkg/
+/bin/
+/spec/reports/
+/tmp/
+.rbenv-gemsets

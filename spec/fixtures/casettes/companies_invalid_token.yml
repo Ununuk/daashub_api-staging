@@ -1,0 +1,52 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://emailmovers-api.herokuapp.com/v1/companies?limit=2&where=domain==www.example.com
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Content-Type:
+      - application/json
+      Authorization:
+      - Token token=sdfvk2387sgjh32
+  response:
+    status:
+      code: 401
+      message: Unauthorized
+    headers:
+      Server:
+      - Cowboy
+      Date:
+      - Tue, 02 Feb 2016 18:03:26 GMT
+      Connection:
+      - keep-alive
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Content-Type-Options:
+      - nosniff
+      Www-Authenticate:
+      - Token realm="Application"
+      Content-Type:
+      - application/json; charset=utf-8
+      Cache-Control:
+      - no-cache
+      X-Request-Id:
+      - f07547a5-0aa2-4c66-afb0-363cd2d62999
+      X-Runtime:
+      - '0.003790'
+      Vary:
+      - Origin
+      Transfer-Encoding:
+      - chunked
+      Via:
+      - 1.1 vegur
+    body:
+      encoding: UTF-8
+      string: '{"error":"HTTP Token: Access denied."}'
+    http_version: 
+  recorded_at: Tue, 02 Feb 2016 18:03:21 GMT
+recorded_with: VCR 3.0.1

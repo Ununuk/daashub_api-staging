@@ -1,0 +1,52 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://emailmovers-api.herokuapp.com/v1/account/info
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Content-Type:
+      - application/json
+      Authorization:
+      - Token token=sdfvk2387sgjh32
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - Cowboy
+      Date:
+      - Wed, 03 Feb 2016 09:33:25 GMT
+      Connection:
+      - keep-alive
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Content-Type-Options:
+      - nosniff
+      Content-Type:
+      - application/json; charset=utf-8
+      Etag:
+      - W/"af802a79f7ccc8a33e6e7dede0a0db84"
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - e2710cd2-0bf2-462f-afa5-c7301bf94a51
+      X-Runtime:
+      - '0.004201'
+      Vary:
+      - Origin
+      Transfer-Encoding:
+      - chunked
+      Via:
+      - 1.1 vegur
+    body:
+      encoding: UTF-8
+      string: '{"records_left":50,"renewal_date":"2016-02-24T09:22:49.985Z"}'
+    http_version:
+  recorded_at: Wed, 03 Feb 2016 09:33:19 GMT
+recorded_with: VCR 3.0.1
