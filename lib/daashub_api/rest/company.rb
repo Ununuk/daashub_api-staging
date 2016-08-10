@@ -4,7 +4,6 @@ require 'daashub_api/request'
 module DaashubAPI
   module REST
     module Company
-
       def companies(params = {})
         options = prepare_companies_options(params)
         response = DaashubAPI::Request.perform_get('/v1/companies', access_token, options)
@@ -14,13 +13,12 @@ module DaashubAPI
       protected
 
       def prepare_companies_options(params)
-        if params[:where] && params[:where].kind_of?(Hash)
+        if params[:where] && params[:where].is_a?(Hash)
           where = params[:where].first
           params[:where] = "#{where[0]}==#{where[1]}"
         end
         { query: params }
       end
-
     end
   end
 end

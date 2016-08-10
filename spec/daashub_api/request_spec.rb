@@ -10,9 +10,7 @@ describe DaashubAPI::Request do
   end
 
   describe '.perform_get' do
-
     context 'when token is valid' do
-
       it 'returns a Hash' do
         VCR.use_cassette 'account_info' do
           response = perform_get
@@ -22,10 +20,9 @@ describe DaashubAPI::Request do
     end
 
     context 'when token is invalid' do
-
       it 'raises DaashubAPI::UnauthorizedError' do
         VCR.use_cassette 'account_info_invalid_token' do
-          expect{ perform_get }.to raise_error DaashubAPI::UnauthorizedError
+          expect { perform_get }.to raise_error DaashubAPI::UnauthorizedError
         end
       end
     end
@@ -35,11 +32,9 @@ describe DaashubAPI::Request do
 
       it 'raises DaashubAPI::PageNotFound' do
         VCR.use_cassette 'page_not_found' do
-          expect{ perform_get }.to raise_error DaashubAPI::PageNotFound
+          expect { perform_get }.to raise_error DaashubAPI::PageNotFound
         end
       end
-
     end
   end
-
 end

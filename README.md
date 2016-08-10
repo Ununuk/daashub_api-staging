@@ -1,6 +1,6 @@
 # DaashubAPI
 
-A Ruby interface to [Daashub API](https://gist.github.com/weemanjz/bb558858ce5d2e33ce08).
+A Ruby interface to [Contact Enhance API](https://gist.github.com/weemanjz/bb558858ce5d2e33ce08).
 
 ## Documentation
 
@@ -24,7 +24,7 @@ Or install it yourself as:
 
 ## Usage
 
-Daashub API v1 uses Token Based Authentication, so you'll need to [register your account on Daashub](https://www.daashub.io). Then you will be assigned an API Token. Now you can configure a Daashub client.
+Contact Enhance API v1 uses Token Based Authentication, so you'll need to [register your account on Contact Enhance](https://www.contactenhance.com). Then you will be assigned an API Token. Now you can configure a Daashub client.
 
 ```ruby
 client = DaashubAPI::Client.new('your_api_token')
@@ -56,6 +56,24 @@ companies = client.companies
 
 companies.error? # true
 companies.errors # ["Where can't be blank"]
+```
+
+**Get requests history**
+
+```ruby
+history = client.requests(from: Date.yesterday, order: :desc, limit: 2)
+
+history.item_count # 2
+history.total_count # 9
+
+requests = history.items
+requests[0].query # 'where=domain==www.example.com'
+requests[0].sent_at # 2016-08-09 10:59:56 UTC
+requests[0].item_count # 1
+
+companies = requests[0].items
+
+companies[0].email # 'katie@example.com'
 ```
 
 ## Supported Ruby Versions

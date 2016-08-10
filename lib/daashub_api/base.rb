@@ -1,6 +1,5 @@
 module DaashubAPI
   class Base
-
     def initialize(args = {})
       @attributes = {}
       args.each { |k, v| @attributes[k.to_sym] = v }
@@ -14,8 +13,7 @@ module DaashubAPI
     end
 
     def respond_to_missing?(name, include_private = false)
-      @attributes.key?(name) or super
+      @attributes.key?(name) || super
     end
-
   end
 end

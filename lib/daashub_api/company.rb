@@ -1,8 +1,7 @@
 module DaashubAPI
   class Company < Base
-
     def self.from_array(items)
-      @companies = (items['items'] || []).map { |i| new(i) }
+      @companies = items.fetch('items', []).map { |i| new(i) }
       check_for_errors(items)
       add_fields(items['fields'])
       @companies
@@ -24,15 +23,12 @@ module DaashubAPI
     end
 
     def self.add_fields(fields)
-      if fields && fields.kind_of?(Array)
+      if fields && fields.is_a?(Array)
         @companies.instance_eval { @daashub_fields = fields }
         class << @companies
-          def daashub_fields
-            @daashub_fields
-          end
+          attr_reader :daashub_fields
         end
       end
     end
-
   end
 end

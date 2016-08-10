@@ -13,7 +13,6 @@ describe DaashubAPI::Company do
   end
 
   describe '#email' do
-
     it 'returns an email' do
       expect(company.email).to eq('katie@example.com')
     end
@@ -31,7 +30,6 @@ describe DaashubAPI::Company do
     end
 
     context 'that' do
-
       it 'responds to :errors' do
         expect(@companies).to respond_to :errors
       end
@@ -75,5 +73,4 @@ describe DaashubAPI::Company do
       end
     end
   end
-
 end

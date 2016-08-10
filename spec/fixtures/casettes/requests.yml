@@ -1,0 +1,52 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://emailmovers-api.herokuapp.com/v1/requests
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Content-Type:
+      - application/json
+      Authorization:
+      - Token token=sdfvk2387sgjh32
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - Cowboy
+      Date:
+      - Wed, 10 Aug 2016 08:03:28 GMT
+      Connection:
+      - keep-alive
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Content-Type-Options:
+      - nosniff
+      Content-Type:
+      - application/json; charset=utf-8
+      Etag:
+      - W/"2f4fa16204abb92b6c549e93c47b9428"
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - 81b38766-ebd4-4146-b0d7-bf3d81df8cd9
+      X-Runtime:
+      - '0.008716'
+      Vary:
+      - Origin
+      Transfer-Encoding:
+      - chunked
+      Via:
+      - 1.1 vegur
+    body:
+      encoding: UTF-8
+      string: '{"fields":["company","website","email"],"item_count":1,"items":[{"query":"where=domain==example.com","ip_address":"123.45.67.89","sent_at":"2016-08-09T10:59:56.287Z","item_count":5,"items":[{"company":"Example Limited","website":"www.example.com","email":"robert@example.com"},{"company":"Example Limited","website":"www.example.com","email":"danielle@example.com"},{"company":"Example Limited","website":"www.example.com","email":"robert@example.com"},{"company":"Example Limited","website":"www.example.com","email":"katie@example.com"},{"company":"Example Limited","website":"www.example.com","email":"jamie.gledhill@example.com"}]}],"total_count":1}'
+    http_version:
+  recorded_at: Wed, 10 Aug 2016 08:03:28 GMT
+recorded_with: VCR 3.0.3

@@ -9,7 +9,6 @@ module DaashubAPI
     format :json
 
     class << self
-
       def perform_get(endpoint, access_token, options = {})
         headers 'Authorization' => "Token token=#{access_token}"
         response = get(endpoint, options)
@@ -43,8 +42,6 @@ module DaashubAPI
         super unless name =~ /^error_/
         raise Error, args.first
       end
-
     end
-
   end
 end

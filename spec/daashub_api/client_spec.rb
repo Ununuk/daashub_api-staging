@@ -11,13 +11,11 @@ describe DaashubAPI::Client do
   end
 
   describe '.account_info' do
-
     it 'returns an Account object' do
       VCR.use_cassette 'account_info' do
         expect(client.account_info).to be_kind_of DaashubAPI::Account
       end
     end
-
   end
 
   describe '.companies' do
@@ -28,6 +26,13 @@ describe DaashubAPI::Client do
         expect(client.companies(companies_options)).to be_kind_of Array
       end
     end
+  end
 
+  describe '.requests' do
+    it 'returns an History object' do
+      VCR.use_cassette 'requests' do
+        expect(client.requests).to be_kind_of DaashubAPI::History
+      end
+    end
   end
 end

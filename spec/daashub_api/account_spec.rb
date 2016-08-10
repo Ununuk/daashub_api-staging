@@ -13,15 +13,12 @@ describe DaashubAPI::Account do
   end
 
   describe '#records_left' do
-
     it 'returns number' do
       expect(account.records_left).to eq(50)
     end
-
   end
 
   describe '#renewal_date' do
-
     it 'returns time' do
       expect(account.renewal_date).to be_kind_of Time
     end
