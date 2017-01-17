@@ -10,16 +10,26 @@ module DaashubAPI
 
     class << self
       def perform_get(endpoint, access_token, options = {})
-        headers 'Authorization' => "Token token=#{access_token}"
-        response = get(endpoint, options)
-        check_for_errors(response)
-        response.parsed_response
+        perform(access_token) { get(endpoint, options) }
+      end
+
+      def perform_post(endpoint, access_token, options = {})
+        perform(access_token) { post(endpoint, options) }
       end
 
       private
 
+      def perform(access_token)
+        headers 'Authorization' => "Token token=#{access_token}"
+        response = yield
+        check_for_errors(response)
+        response.parsed_response
+      end
+
       def check_for_errors(response)
-        send("error_#{response.response.code}", response.parsed_response['error']) if response.parsed_response['error']
+        return unless response.parsed_response['error']
+        send("error_#{response.response.code}",
+             response.parsed_response['error'])
       end
 
       def error_400(message)

@@ -1,10 +1,12 @@
 require 'daashub_api/rest/account'
+require 'daashub_api/rest/batch_file'
 require 'daashub_api/rest/company'
 require 'daashub_api/rest/history'
 
 module DaashubAPI
   class Client
     include DaashubAPI::REST::Account
+    include DaashubAPI::REST::BatchFile
     include DaashubAPI::REST::Company
     include DaashubAPI::REST::History
 
