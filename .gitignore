@@ -11,3 +11,4 @@
 /tmp/
 .rbenv-gemsets
 .idea
+.DS_Store
