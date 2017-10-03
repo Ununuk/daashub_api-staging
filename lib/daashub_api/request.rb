@@ -4,7 +4,7 @@ require 'daashub_api/errors'
 module DaashubAPI
   class Request
     include HTTParty
-    base_uri 'https://contactenhance-api.herokuapp.com'
+    base_uri 'https://contactenhance-api-staging.herokuapp.com'
     headers 'Content-Type' => 'application/json'
     format :json
 
